@@ -1,56 +1,55 @@
-package GroupProject;
-
+package Project;
 /**
- * Created by Emma Mason on 28/11/2020
- * UPDATE PROGRAM COMMENTS ABOUT PROGRAM HERE
+ * Created by Group 11 on 28/11/2020
+ * User Super Class.
  **/
-public class User {
-
-   private String userAt;
+public class User
+{
+   private String userAt, username, password;
    private int totalFollowers;
+   public boolean fullTimeInfluencer = false, casualUser = false;
 
-   private String username;
-   private String password;
-   public boolean fullTimeInfluencer=false;
-   public boolean casualUser=false;
-
-   public User(String userName, String password, String userAt, int totalFollowers) {
-
+   public User(String userName, String password, String userAt, int totalFollowers)
+   {
       this.userAt = userAt;
       this.totalFollowers = totalFollowers;
-
       this.username = userName;
       this.password = password;
+   }//Constructor.
 
-   }
-
-   public String getUserAt() {
+   public String getUserAt()
+   {
       return userAt;
-   }
+   }//Get User At.
 
-   public int getTotalFollowers() {
+   public int getTotalFollowers()
+   {
       return totalFollowers;
-   }
+   }//Get Total Followers.
 
-   public String getUsername() {
+   public String getUsername()
+   {
       return username;
-   }
+   }//Get User Name.
 
-   public String getPassword() {
+   public String getPassword()
+   {
       return password;
-   }
+   }//Get Password.
+
    public int updateFollowers()
    {
       totalFollowers = Integer.parseInt(Read.read("follower count today"));
       return getTotalFollowers();
-   }
+   }//Method to Update Follower Count.
 
-   /*
-    * return user details
-    */
-   public String toString() {
-      return (getUsername() + "\n(@" + getUserAt() + ")\nYou currently have " + getTotalFollowers()
-            + " followers on Instagram.");
-   }
+   protected static void welcome()
+   {
+      System.out.println("\nWelcome to Reach, an Instagram Analytics Tool\n");
+   }//Print Welcome Method.
 
-}
+   public String toString()
+   {
+      return (getUsername() + "\n(@" + getUserAt() + ")\nYou currently have " + getTotalFollowers() + " followers on Instagram.");
+   }//To String.
+}//Class

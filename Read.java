@@ -1,40 +1,37 @@
-package GroupProject;
-
+package Project;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-
 /**
- * Created by Emma Mason on 28/11/2020 UPDATE PROGRAM COMMENTS ABOUT PROGRAM
- * HERE
+ * Created by Group 11 on 28/11/2020
+ * Read Class.
  **/
-public class Read {
-
+public class Read
+{
    /**
     * takes the string of what data required and asks user for input, returns as string
     * @param label
     * @return
     */
-   public static String read( String label ) {
-
+   public static String read(String label)
+   {
       System.out.println( "\nProvide your " + label + ":" );
+      System.out.print( "> " );
 
-      System.out.println( ">" );
-
-
-      BufferedReader input = new BufferedReader( new InputStreamReader( System.in ) );
+      BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
       String value = null;
 
-      try {
-
+      try
+      {
          value = input.readLine();
       }
 
-      catch (IOException ex) { ex.printStackTrace(); }
-
+      catch (IOException ex)
+      {
+         ex.printStackTrace();
+      }
 
       return value;
-   }
-}
+   }//Read Method.
+}//Class.
