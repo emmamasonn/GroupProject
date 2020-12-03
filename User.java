@@ -50,6 +50,6 @@ public class User
 
    public String toString()
    {
-      return (getUsername() + "\n(@" + getUserAt() + ")\nYou currently have " + getTotalFollowers() + " followers on Instagram.");
+      return ("\nReach Username:" + getUsername() + "\nInstagram (@" + getUserAt() + ")\nYou currently have " + getTotalFollowers() + " followers on Instagram.");
    }//To String.
 }//Class

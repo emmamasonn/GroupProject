@@ -45,6 +45,7 @@ public class TestProgram
                RegistrationTransaction registrationTransaction = new RegistrationTransaction();
                User user = registrationTransaction.register(); // make the new user
                userList.add(user); // add new user
+               System.out.println("\nAccount Created, please login below.\n");
             }//Case One Register User.
             break;
             case "2":
@@ -67,7 +68,8 @@ public class TestProgram
                      while (!casualMenu)
                      {
                         // this is a menu for the casual user
-                        System.out.println("\nCasual User Account");
+                        System.out.println("\n********************");
+                        System.out.println("Casual User Account");
                         System.out.println("\n0. Log Out \n1. Print Your Details \n2. Update Followers \n3. Update Likes " + "\n4. Get User interaction \n5. Receive Tips ");
 
                         choice = Read.read("choice");
@@ -75,7 +77,7 @@ public class TestProgram
                         {
                            case "0":
                            {
-                              System.out.println("\nThank You For Using Reach.");
+                              System.out.println("\nReturning to Main Menu.\n");
                               casualMenu = true;
                            }//Case 0, exit the program.
                            break;
@@ -118,35 +120,67 @@ public class TestProgram
                   {
                      while (!fullTimeMenu)
                      {
-                        System.out.println("\nFull Time Influencer Account");
-                        System.out.println("\n0. Log Out \n1. Rank Accounts Reached \n2. Rank Interactions " + "\n3. Rank Followers  ");
+                        System.out.println("\n*****************************");
+                        System.out.println("Full Time Influencer Account");
+                        System.out.println("\n0. Log Out \n1. Enter Last 3 Posts Likes \n2. Get Average Likes \n3. Rank Accounts Reached \n4. Rank Interactions "
+                                + "\n5. Rank Followers " + "\n6. Show Steps You Took to Achieve Great Reach Grades " + "\n7. Get a Reach Tip " + "\n8. Account Summary (View After All Options Completed)");
 
                         choice = Read.read("choice");
                         switch (choice)
                         {
                            case "0":
                            {
-                              System.out.println("\nThank You For Using Reach.");
+                              System.out.println("\nReturning to Main Menu.\n");
                               fullTimeMenu = true;
                            }//Case 0, exit program.
                            break;
 
                            case "1":
                            {
+                              ((FullTime) currentUser).updateLikes();
+                           }//Case 1, Enter Last Three Posts Likes.
+                           break;
+
+                           case "2":
+                           {
+                              ((FullTime) currentUser).getAverageLikes();
+                           }//Case 2, Print Average Likes of Last 3 Posts.
+                           break;
+
+                           case "3":
+                           {
                               ((FullTime) currentUser).rankAccountsReached();
                            }//Case 1, Rank Accounts Reached.
                            break;
 
-                           case "2":
+                           case "4":
                            {
                               ((FullTime) currentUser).rankInteractions();
                            }//Case 2, Rank Interactions.
                            break;
 
-                           case "3":
+                           case "5":
                            {
                               ((FullTime) currentUser).rankFollowers();
                            }//Case 3, Rank Followers.
+                           break;
+
+                           case "6":
+                           {
+                              ((FullTime) currentUser).printUserEnteredTips();
+                           }//Case 6, Print the tips entered by the user.
+                           break;
+
+                           case "7":
+                           {
+                              System.out.println(((FullTime) currentUser).showTip());
+                           }//Case 7, Display Random Tip to User.
+                           break;
+
+                           case "8":
+                           {
+                              System.out.println(((FullTime) currentUser).toString());
+                           }//Case 8, Print Account Summary.
                         }//Switch Statement.
                      }//While loop for menu.
                   }//else commands for when User can log in.
