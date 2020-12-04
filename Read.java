@@ -6,27 +6,39 @@ import java.io.InputStreamReader;
  * Created by Group 11 on 28/11/2020
  * Read Class.
  **/
-public class Read
-{
-  // Will return user input with exception handling.
-   public static String read(String label)
-   {
-      System.out.println( "\nProvide your " + label + ":" );
-      System.out.print( "> " );
+public class Read {
+   // Will return user input with exception handling.
+
+   //A string class to read in the user input
+   public static String read(String label) {
+      String value = "";
 
       BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+      System.out.println("\nProvide your " + label + ":");
 
-      String value = null;
+      //try - exception handling
+      try
+      {
+            //While loop with if statement. If user enters null or an empty entry, they
+           // will be prompted again.
+            while (value == null || value.isEmpty())
+            {
+                System.out.print("> ");
+                value = input.readLine();
 
-         try
-         {
-            value = input.readLine();
-         }
-         catch (IOException ex)
-         {
-            ex.printStackTrace();
-         }
+                if (value.isEmpty())
+                {
+                   System.out.println("Sorry that was an invalid input. Try again.");
+                }
+            }
+
+      }
+      catch (IOException e)
+      {
+         System.out.println("An error occurred.");
+         e.printStackTrace();
+      }
 
       return value;
    }//Read Method.
-}//Class.
+}
