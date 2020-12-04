@@ -6,19 +6,18 @@ import java.util.List;
  **/
 public class UserLoginTransaction
 {
+   //Variables for the class
    public boolean successfulLogin = false;
    public int index = 0;
    private List<User> users;
 
+   //Constructor for the class
    public UserLoginTransaction(List<User> users)
    {
       this.users = users;
    }
 
-   /**
-    * returns if login was successful
-    * @return
-    */
+   //Will return whether the login is successful or not.
    public boolean login()
    {
       String username = Read.read("Username");
@@ -47,19 +46,15 @@ public class UserLoginTransaction
       }
    }
 
-   /**
-    * returns index of users that is logged in
-    * @return
-    */
+
+   //returns index of users that is logged in
    public int getIndex()
    {
       return this.index;
    }
 
-   /**
-    * returns if login was successful
-    * @return
-    */
+
+   // Returns if login was successful.
    public boolean successfulLogin()
    {
       return this.successfulLogin;

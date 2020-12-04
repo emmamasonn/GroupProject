@@ -8,11 +8,7 @@ import java.io.InputStreamReader;
  **/
 public class Read
 {
-   /**
-    * takes the string of what data required and asks user for input, returns as string
-    * @param label
-    * @return
-    */
+  // Will return user input with exception handling.
    public static String read(String label)
    {
       System.out.println( "\nProvide your " + label + ":" );
@@ -22,15 +18,14 @@ public class Read
 
       String value = null;
 
-      try
-      {
-         value = input.readLine();
-      }
-
-      catch (IOException ex)
-      {
-         ex.printStackTrace();
-      }
+         try
+         {
+            value = input.readLine();
+         }
+         catch (IOException ex)
+         {
+            ex.printStackTrace();
+         }
 
       return value;
    }//Read Method.

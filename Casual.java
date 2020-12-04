@@ -6,11 +6,14 @@ import java.text.DecimalFormat;
  **/
 public class Casual extends User
 {
+
+   // Instance variables specific to the casual user.
    private int likes1, likes2, likes3, postsPerWeek, storiesPerDay;
    private double interactPercentage;
 
    static DecimalFormat df = new DecimalFormat("0.00");
 
+   //Alternative Constructor to use super from User class.
    public Casual(String userName, String password, String userAt, int totalFollowers)
    {
       super(userName, password, userAt, totalFollowers);
@@ -21,8 +24,9 @@ public class Casual extends User
       this.storiesPerDay=0;
       this.interactPercentage = getUserInteraction();
       this.casualUser=true;
-   }//Alternative Constructor to use super from User class.
+   }
 
+   //Alternative Constructor to include users likes.
    public Casual(String userName, String password, String userAt, int totalFollowers, int likes1, int likes2, int likes3)
    {
       super(userName, password, userAt, totalFollowers);
@@ -33,13 +37,13 @@ public class Casual extends User
       this.storiesPerDay=0;
       this.interactPercentage = getUserInteraction();
       this.casualUser=true; //This means they will be used as a casual user.
-   }//Alternative Constructor to include users likes.
+   }
+
 
    public int getLikes1()
    {
       return likes1;
    }//Get Likes 1.
-
    public void setLikes1(int likes1)
    {
       this.likes1 = likes1;
@@ -49,17 +53,16 @@ public class Casual extends User
    {
       return likes2;
    }//Get Likes 2.
-
    public void setLikes2(int likes2)
    {
       this.likes2 = likes2;
-   }//Set Likes 2.
+   } //Set Likes 2.
+
 
    public int getLikes3()
    {
       return likes3;
    }//Get Likes 3.
-
    public void setLikes3(int likes3)
    {
       this.likes3 = likes3;
@@ -69,11 +72,10 @@ public class Casual extends User
    {
       return postsPerWeek;
    }//Get Posts Per Week.
-
    public void setPostsPerWeek(int postsPerWeek)
    {
       this.postsPerWeek = postsPerWeek;
-   }//Set Posts Per Week.
+   } //Set Posts Per Week.
 
    public double getInteractPercentage()
    {
@@ -83,30 +85,34 @@ public class Casual extends User
    public void setInteractPercentage(double interactPercentage)
    {
       this.interactPercentage = interactPercentage;
-   }//Set Interaction Percentage.
+   }// Set interaction percentage.
 
    private double getAverage()
    {
       return (likes1 + likes2 + likes3) / 3.0;
-   }//Get Average.
+   }   //Get Average.
 
+   //Print Average Likes Method.
    public void printAverage()
    {
       System.out.println("The average amount of likes achieved is: " + df.format(getAverage()));
-   }//Print Average Likes Method.
+   }
 
+   //Get User Interaction Percentage.
    public double getUserInteraction()
    {
       int followers = getTotalFollowers();
       interactPercentage = (100.0 / followers) * getAverage();
       return interactPercentage;
-   }//Get User Interaction Percentage.
+   }
 
+   //Set User Interaction.
    public void setUserInteraction(double pInteractPercentage)
    {
       interactPercentage = pInteractPercentage;
-   }//Set User Interaction.
+   }
 
+   //Method to Return a grade for Users Reach.
    private char yourReach() {
       char grade;
       if ((interactPercentage >= 70) && (interactPercentage <= 100))
@@ -134,13 +140,16 @@ public class Casual extends User
                                  grade = 'F';
                                }
       return grade;
-   }//Method to Return a Grade for Users Reach.
+   }
 
+
+   //Method to print user reach.
    public void printYourReach()
    {
       System.out.print("Your reach score is: " + yourReach());
-   }//Method to print user reach.
+   }
 
+   //Method to Check Users Reach.
    public void reachChecker()
    {
       if (yourReach() == 'A')
@@ -151,8 +160,9 @@ public class Casual extends User
       {
          improveYourReach();
       }
-   }//Method to Check Users Reach.
+   }
 
+   //Method to update users likes and calculate their average.
    public void updateLikes()
    {
       likes1=Integer.parseInt(Read.read("likes that your latest post received"));
@@ -165,13 +175,15 @@ public class Casual extends User
       setLikes3(likes3);
 
       System.out.print("Your average amount of likes is: " + df.format(getAverage()));
-   }//Method to update users likes and calculate their average.
+   }
 
-
+   //Improve Your Reach Method.
    public void improveYourReach()
    {
+      // Prompt user to enter info.
       postsPerWeek =Integer.parseInt(Read.read("times you post a week?"));
 
+      // String array of times to post
       String [] timeimprovement = new String[4];
       timeimprovement[0] = "Monday, Wednesday or Thursday: 11am - 1pm";
       timeimprovement[1] = "Monday to Friday: 6pm - 9pm";
@@ -179,6 +191,7 @@ public class Casual extends User
       timeimprovement[3] = "Saturday: 11am";
       timeimprovement[3] = "Sunday: 11am or 5pm";
 
+      //Nested if else to recommend a random tip from array timeimprovement.
       if (postsPerWeek <= 2)
       {
          System.out.println("You must increase your posts per week to at least three");
@@ -189,10 +202,12 @@ public class Casual extends User
                System.out.println("******************************************************************");
                System.out.println(timeimprovement[(int) (Math.random()%timeimprovement.length)]);
                System.out.println("******************************************************************");
-            }//Nested if else to recommend a random tip from array timeimporvement.
+            }
 
-      storiesPerDay=Integer.parseInt(Read.read("number of instagram stories posted daily:"));
+      //Prompt for user to enter info.
+      storiesPerDay=Integer.parseInt(Read.read("number of instagram stories posted daily"));
 
+      //Nested if else to recommend tips based on how many stories the user posts.
       if (storiesPerDay <= 1)
       {
          System.out.println("You must try to post at least one story daily to engage followers and increase interaction");
@@ -202,16 +217,18 @@ public class Casual extends User
             {
                System.out.println("Ensure to maintaining posting one story daily to engage followers and increase interaction");
                System.out.println("Try using polls, meters and questions to encourage interaction.");
-            }//Nested if else to recommend tips based on how many stories the user posts.
-   }//Improve Your Reach Method.
+            }
+   }
 
+   //Print User Interaction.
    public void printUserInteraction()
    {
       System.out.println("The percentage of followers that interact with your content is: " + df.format(getUserInteraction()) + "%");
-   }//Print User Interaction.
+   }
 
+   // To string method to print user's information.
    public String toString()
    {
       return super.toString() + "\nUser average likes: " + getAverage() + "\nUser follower interaction: " + getUserInteraction() + "\nUser posts per week: " + getPostsPerWeek() + "\nUser reach grade + " + yourReach();
-   }//to String.
+   }
 }// class

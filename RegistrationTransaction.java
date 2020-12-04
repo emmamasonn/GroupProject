@@ -7,12 +7,16 @@ public class RegistrationTransaction
 {
    public User register()
    {
-      User user = null;
-      //New User.
 
+      //Creating a default user.
+      User user = null;
+
+
+      //Variables for the register class.
       String userName, password, userAt;
       int totalFollowers;
 
+      //Prompts for user to enter info.
       userName = Read.read("Username");
       password = Read.read("Password");
       userAt = Read.read("Instagram @");
@@ -20,13 +24,15 @@ public class RegistrationTransaction
 
       String userType = Read.read("Full Time or Casual Influencer (F/C)");
 
-      if (userType.contains("F"))
+
+      //If statement to distinguish between the two types of users
+      if (userType.equalsIgnoreCase("F"))
       {
          //ADD STUFF HERE INDIVIDUAL TO FTI USER
          user = new FullTime(userName, password, userAt, totalFollowers);
       }//if user indicates using 'F' that they are a FullTime influencer, create a FullTime object.
 
-      if (userType.contains("C"))
+      if (userType.equalsIgnoreCase("C"))
       {
          //ADD STUFF HERE INDIVIDUAL TO CASUAL USER
          user = new Casual(userName, password, userAt, totalFollowers);
