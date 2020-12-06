@@ -2,16 +2,20 @@ package Project;
 import java.text.DecimalFormat;
 /**
  * Created by Group 11 on 28/11/2020
- * Casual Sub Class.
+ * Author: Emma Mason
+ * Last Updated:06/12/2020
+ * Casual Sub Class - to create a casual
+ * instagram user object and hold all the
+ * methods specific to this.
  **/
 public class Casual extends User
 {
 
+   //Create a DecimalFormat object
+   static DecimalFormat df = new DecimalFormat("00.00");
    // Instance variables specific to the casual user.
    private int postsPerWeek, storiesPerDay;
    private double interactPercentage;
-
-   static DecimalFormat df = new DecimalFormat("00.00");
 
    //Alternative Constructor to use super from User class.
    public Casual(String userName, String password, String userAt, int totalFollowers)
@@ -46,7 +50,6 @@ public class Casual extends User
    {
       return interactPercentage;
    }//Get Interaction Percentage.
-
    public void setInteractPercentage(double interactPercentage)
    {
       this.interactPercentage = interactPercentage;
@@ -120,15 +123,15 @@ public class Casual extends User
    public void improveYourReach()
    {
       // Prompt user to enter info.
-      postsPerWeek =Integer.parseInt(Read.read("times you post a week?"));
+      postsPerWeek =Integer.parseInt(Read.read("number of weekly posts"));
 
       // String array of times to post
-      String [] timeimprovement = new String[4];
+      String [] timeimprovement = new String[5];
       timeimprovement[0] = "Monday, Wednesday or Thursday: 11am - 1pm";
       timeimprovement[1] = "Monday to Friday: 6pm - 9pm";
       timeimprovement[2] = "Saturday: 11am";
       timeimprovement[3] = "Saturday: 11am";
-      timeimprovement[3] = "Sunday: 11am or 5pm";
+      timeimprovement[4] = "Sunday: 11am or 5pm";
 
       //Nested if else to recommend a random tip from array time improvement.
       if (postsPerWeek <= 2)
@@ -162,12 +165,14 @@ public class Casual extends User
    //Print User Interaction.
    public void printUserInteraction()
    {
-      System.out.println("The percentage of followers that interact with your content is: " + df.format(getUserInteraction()) + "%");
+      System.out.println("The percentage of followers that interact with your content is: "
+                          + df.format(getUserInteraction()) + "%");
    }
 
    // To string method to print user's information.
    public String toString()
    {
-      return super.toString() + "\nUser follower interaction: " + df.format(getUserInteraction()) + "%" + "\nUser posts per week: " + getPostsPerWeek() + "\nUser reach grade + " + yourReach();
+      return super.toString() + "\nUser follower interaction: " + df.format(getUserInteraction()) + "%"
+              + "\nUser posts per week: " + getPostsPerWeek() + "\nUser reach grade: " + yourReach();
    }
 }// class

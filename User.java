@@ -4,16 +4,19 @@ import java.text.DecimalFormat;
 
 /**
  * Created by Group 11 on 28/11/2020
- * User Super Class.
+ * Author: Fearghal O'Boyle and Donal Doherty
+ * Last Updated:06/12/2020
+ * User Super Class - a super class to hold
+ * attributes and methods common to both
+ * sub classes.
  **/
 public class User
 {
+   //Create instance varibles for the class
    static private DecimalFormat df=new DecimalFormat("0.00");
-   public boolean proInfluencer;
-
    private String userAt, username, password;
    private int totalFollowers, likes1, likes2, likes3;
-   public boolean fullTimeInfluencer = false, casualUser = false;
+   public boolean proInfluencer = false, casualUser = false;
 
    public User(String userName, String password, String userAt, int totalFollowers)
    {
@@ -101,7 +104,6 @@ public class User
 
       likes3=Integer.parseInt(Read.read("likes that your third latest post received"));
       setLikes3(likes3);
-
    }
 
    public double getAverage()
@@ -118,11 +120,14 @@ public class User
    protected static void welcome()
    {
       System.out.println("\nWelcome to Reach!");
-      System.out.println("The Instagram Insights Tool to grow your tribe and convert followers to clients. Lets GO!\n");
+      System.out.println("The Instagram Insights Tool to grow your tribe and convert followers to clients. " +
+                          "Lets GO!\n");
    }//Print Welcome Method.
 
    public String toString()
    {
-      return ("\nReach Username:" + getUsername() + "\nInstagram (@" + getUserAt() + ")\nYou currently have " + getTotalFollowers() + " followers on Instagram." + "\nAverage likes:" + getAverage());
+      return ("\nReach Username:" + getUsername() + "\nInstagram (@" + getUserAt() + ")\n" +
+             "You currently have " + getTotalFollowers() + " followers on Instagram." + "\nAverage likes:"
+             + df.format(getAverage()));
    }//To String.
 }//Class

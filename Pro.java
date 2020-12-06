@@ -3,7 +3,11 @@ import java.text.DecimalFormat;
 import java.util.Scanner;
 /**
  * Created by Group 11 on 28/11/2020
- * FulLTime Sub Class.
+ * Author: Fearghal O'Boyle
+ * Last Updated:06/12/2020
+ * Pro Sub Class - to create a Professional
+ * instagram user object and hold all the
+ * methods specific to this.
  **/
 public class Pro extends User
 {

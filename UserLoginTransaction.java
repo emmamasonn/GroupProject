@@ -2,7 +2,11 @@ package Project;
 import java.util.List;
 /**
  * Created by Group 11 on 28/11/2020
- * User Login Transaction Class.
+ * Author: Emma Mason
+ * Last Updated:06/12/2020
+ * UserLoginTransaction Class - to
+ * prompt for login from a user
+ * using a username and password.
  **/
 public class UserLoginTransaction
 {

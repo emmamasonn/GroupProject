@@ -1,7 +1,13 @@
 package Project;
 /**
  * Created by Group 11 on 28/11/2020
- * Registration Transaction Class.
+ * Author: Emma Mason, Fearghal O'Boyle
+ * and Donal Doherty.
+ * Last Updated:06/12/2020
+ * RegistrationTransaction Class - to
+ * register a new user into the system
+ * based on whether they are a Pro
+ * or Casual user.
  **/
 public class RegistrationTransaction
 {
@@ -25,16 +31,16 @@ public class RegistrationTransaction
       String userType = Read.read("Do you use Instagram for fun (Casual Influencer) or for business (Pro Influencer) (C/P)?");
 
 
-      //If statement to distinguish between the two types of users
+      //If statement to distinguish between the two types of users.
       if (userType.equalsIgnoreCase("P"))
       {
-         //ADD STUFF HERE INDIVIDUAL TO FTI USER
+         //Variables specific to a pro user can be added here.
          user = new Pro(userName, password, userAt, totalFollowers);
-      }//if user indicates using 'P' that they are a FullTime influencer, create a FullTime object.
+      }//if user indicates using 'P' that they are Pro influencer, create a Pro object.
 
       if (userType.equalsIgnoreCase("C"))
       {
-         //ADD STUFF HERE INDIVIDUAL TO CASUAL USER
+         //Variables specific to a casual user can be added here.
          user = new Casual(userName, password, userAt, totalFollowers);
       }//if user indicates using 'C' that they are a Casual influencer, create a Casual object.
 

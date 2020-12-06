@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 /**
  * Created by Group 11 on 28/11/2020
- * Read Class.
+ * Author: Emma Mason and Donal Doherty
+ * Last Updated:06/12/2020
+ * Read Class - to use exception handling
+ * to get a valid user input.
  **/
 public class Read {
    // Will return user input with exception handling.
@@ -41,6 +44,7 @@ public class Read {
 
       return value;
    }//Read Method.
+
    public static String menuOptions(String label) {
       String value = "";
 
