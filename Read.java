@@ -14,7 +14,7 @@ public class Read {
       String value = "";
 
       BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
-      System.out.println("\nProvide your " + label + ":");
+      System.out.print("\nProvide your " + label );
 
       //try - exception handling
       try
@@ -23,14 +23,45 @@ public class Read {
            // will be prompted again.
             while (value == null || value.isEmpty())
             {
-                System.out.print("> ");
+                System.out.print(": ");
                 value = input.readLine();
 
                 if (value.isEmpty())
                 {
-                   System.out.println("Sorry that was an invalid input. Try again.");
+                   System.out.println("Sorry that was an invalid input. Please try again.");
                 }
             }
+
+      }
+      catch (IOException e)
+      {
+         System.out.println("An error occurred.");
+         e.printStackTrace();
+      }
+
+      return value;
+   }//Read Method.
+   public static String menuOptions(String label) {
+      String value = "";
+
+      BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
+      System.out.print("\nHow would you like to start? " + label + " (1 - 3) ");
+
+      //try - exception handling
+      try
+      {
+         //While loop with if statement. If user enters null or an empty entry, they
+         // will be prompted again.
+         while (value == null || value.isEmpty())
+         {
+            System.out.print(": ");
+            value = input.readLine();
+
+            if (value.isEmpty())
+            {
+               System.out.println("Sorry that was an invalid input. Please try again.");
+            }
+         }
 
       }
       catch (IOException e)

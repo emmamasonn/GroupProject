@@ -22,15 +22,15 @@ public class RegistrationTransaction
       userAt = Read.read("Instagram @");
       totalFollowers = Integer.parseInt(Read.read("Total Followers"));
 
-      String userType = Read.read("Full Time or Casual Influencer (F/C)");
+      String userType = Read.read("Do you use Instagram for fun (Casual Influencer) or for business (Pro Influencer) (C/P)?");
 
 
       //If statement to distinguish between the two types of users
-      if (userType.equalsIgnoreCase("F"))
+      if (userType.equalsIgnoreCase("P"))
       {
          //ADD STUFF HERE INDIVIDUAL TO FTI USER
-         user = new FullTime(userName, password, userAt, totalFollowers);
-      }//if user indicates using 'F' that they are a FullTime influencer, create a FullTime object.
+         user = new Pro(userName, password, userAt, totalFollowers);
+      }//if user indicates using 'P' that they are a FullTime influencer, create a FullTime object.
 
       if (userType.equalsIgnoreCase("C"))
       {
