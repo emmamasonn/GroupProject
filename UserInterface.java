@@ -81,7 +81,7 @@ public class UserInterface
                         choice = Read.read("choice");
                         switch (choice)
                         {
-                           case "6":
+                           case "0":
                            {
                               System.out.println("\nReturning to Main Menu.\n");
                               casualMenu = true;
