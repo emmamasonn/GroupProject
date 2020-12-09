@@ -75,7 +75,7 @@ public class UserInterface
                      {
                         // this is a menu for the casual user
                         System.out.println("\n********************");
-                        System.out.println("Casual Influencer Account");
+                        System.out.println("Casual User Account");
                         System.out.println("\n1. Print Your Details \n2. Update Followers \n3. Update Likes " + "\n4. Get User interaction \n5. Receive Tips \n6. Log Out ");
 
                         choice = Read.read("choice");
