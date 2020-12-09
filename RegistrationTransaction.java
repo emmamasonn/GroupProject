@@ -28,7 +28,8 @@ public class RegistrationTransaction
       userAt = Read.read("Instagram @");
       totalFollowers = Integer.parseInt(Read.read("Total Followers"));
 
-      String userType = Read.read("Do you use Instagram for fun (Casual Influencer) or for business (Pro Influencer) (C/P)?");
+      String userType = Read.read("instagram use. Do you use Instagram for fun (Casual Influencer) or for business " +
+            "(Pro Influencer) (C/P)?");
 
 
       //If statement to distinguish between the two types of users.
