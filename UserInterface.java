@@ -1,4 +1,4 @@
-package Project;
+package GroupProject;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -81,7 +81,7 @@ public class UserInterface
                         choice = Read.read("choice");
                         switch (choice)
                         {
-                           case "0":
+                           case "6":
                            {
                               System.out.println("\nReturning to Main Menu.\n");
                               casualMenu = true;
@@ -130,7 +130,7 @@ public class UserInterface
                         System.out.println("\n*****************************");
                         System.out.println("Pro Influencer Account");
                         System.out.println("\n1. Enter Last 3 Posts Likes \n2. Get Average Likes \n3. Rank Accounts Reached \n4. Rank Interactions "
-                              + "\n5. Rank Followers " + "\n6. Show Steps You Took to Achieve Great Reach Grades " + "\n7. Get a Reach Tip " + "\n8. Account Summary (View After All Options Completed)\n9. Log Out");
+                                + "\n5. Rank Followers " + "\n6. Show Steps You Took to Achieve Great Reach Grades " + "\n7. Get a Reach Tip " + "\n8. Account Summary (View After All Options Completed)\n9. Log Out");
 
                         choice = Read.read("choice");
                         switch (choice)
