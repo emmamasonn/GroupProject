@@ -31,7 +31,7 @@ public class Read {
 
                 if (value.isEmpty())
                 {
-                   System.out.println("Sorry that was an invalid input. Please try again.");
+                   System.out.print("Sorry that was an invalid input. Please try again");
                 }
             }
 
@@ -63,7 +63,7 @@ public class Read {
 
             if (value.isEmpty())
             {
-               System.out.println("Sorry that was an invalid input. Please try again.");
+               System.out.print("Sorry that was an invalid input. Please try again");
             }
          }
 
