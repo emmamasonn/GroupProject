@@ -17,14 +17,11 @@ public class UserInterface
    public static void main(String[] args)
    {
       String choice;
-      boolean menu = false, casualMenu = false, proMenu = false;
+      boolean menu = false, casualMenu, proMenu;
 
       //Hard coded users for the userList. These users can login without registration.
-      userList.add(new Pro("u1", "p1", "emmamason1000", 1120));
-      userList.add(new Casual("u2", "p2", "emmamason2000", 394, 46, 130, 250));
-      userList.add(new Pro("u3", "p3", "emmamason3000", 594));
-      userList.add(new Casual("u4", "p4", "emmamason4000", 2));
-
+      userList.add(new Pro("user1", "password1", "ProUserExample", 15000));
+      userList.add(new Casual("user3", "password3", "CasualUserExample", 400, 100, 300, 500));
       User.welcome();
       //Call to welcome method in User super class.
 
@@ -58,6 +55,8 @@ public class UserInterface
             {
                UserLoginTransaction userLogin = new UserLoginTransaction(userList);
                userLogin.login();
+               casualMenu = false;
+               proMenu = false;
 
                if (!userLogin.successfulLogin())
                {
