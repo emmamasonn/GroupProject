@@ -12,7 +12,7 @@ public class Casual extends User
 {
 
    //Create a DecimalFormat object
-   static DecimalFormat df = new DecimalFormat("00.00");
+   static private DecimalFormat df = new DecimalFormat("00.00");
    // Instance variables specific to the casual user.
    private int postsPerWeek, storiesPerDay;
    private double interactPercentage;
@@ -37,26 +37,26 @@ public class Casual extends User
       this.casualUser=true; //This means they will be used as a casual user.
    }
 
-   public int getPostsPerWeek()
+   protected int getPostsPerWeek()
    {
       return postsPerWeek;
    }//Get Posts Per Week.
-   public void setPostsPerWeek(int postsPerWeek)
+   protected void setPostsPerWeek(int postsPerWeek)
    {
       this.postsPerWeek = postsPerWeek;
    } //Set Posts Per Week.
 
-   public double getInteractPercentage()
+   protected double getInteractPercentage()
    {
       return interactPercentage;
    }//Get Interaction Percentage.
-   public void setInteractPercentage(double interactPercentage)
+   protected void setInteractPercentage(double interactPercentage)
    {
       this.interactPercentage = interactPercentage;
    }// Set interaction percentage.
 
    //Get User Interaction Percentage.
-   public double getUserInteraction()
+   protected double getUserInteraction()
    {
       int followers = getTotalFollowers();
       interactPercentage = (100.0 / followers) * getAverage();
@@ -64,13 +64,13 @@ public class Casual extends User
    }
 
    //Set User Interaction.
-   public void setUserInteraction(double pInteractPercentage)
+   protected void setUserInteraction(double pInteractPercentage)
    {
       interactPercentage = pInteractPercentage;
    }
 
    //Method to Return a grade for Users Reach.
-   private char yourReach() {
+   protected char yourReach() {
       char grade;
       if ((interactPercentage >= 70) && (interactPercentage <= 100))
       {
@@ -101,13 +101,13 @@ public class Casual extends User
 
 
    //Method to print user reach.
-   public void printYourReach()
+   protected void printYourReach()
    {
       System.out.print("Your reach score is: " + yourReach());
    }
 
    //Method to Check Users Reach.
-   public void reachChecker()
+   protected void reachChecker()
    {
       if (yourReach() == 'A')
       {
@@ -120,7 +120,7 @@ public class Casual extends User
    }
 
    //Improve Your Reach Method.
-   public void improveYourReach()
+   protected void improveYourReach()
    {
       // Prompt user to enter info.
       postsPerWeek =Integer.parseInt(Read.read("number of weekly posts"));
@@ -163,7 +163,7 @@ public class Casual extends User
    }
 
    //Print User Interaction.
-   public void printUserInteraction()
+   protected void printUserInteraction()
    {
       System.out.println("The percentage of followers that interact with your content is: "
                           + df.format(getUserInteraction()) + "%");
